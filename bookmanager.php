@@ -1,33 +1,33 @@
 <?php
-/*
-Plugin Name: Book Manager
-Description: VeronaLabs test task plugin.
-Version: 1.0.0
-Author: AliReza B.
-Author URI: https://www.linkedin.com/in/alireza-ceon/
-Text Domain: bookmanager
-*/
+/**
+ * Plugin Name:     Book Manager
+ * Plugin URI:      https://www.linkedin.com/in/alireza-ceon/
+ * Plugin Prefix:   EP
+ * Description:     VeronaLabs test task plugin.
+ * Author:          AliReza B.
+ * Author URI:      https://www.linkedin.com/in/alireza-ceon/
+ * Text Domain:     bookmanager
+ * Domain Path:     /languages
+ * Version:         0.1.0
+ */
 
-// Exit if accessed directly.
-if (!defined('ABSPATH')) {
-    exit;
+
+namespace RabbitExamplePlugin;
+
+use Rabbit\Application;
+use Rabbit\Database\DatabaseServiceProvider;
+use Rabbit\Logger\LoggerServiceProvider;
+use Rabbit\Plugin;
+use Rabbit\Redirects\AdminNotice;
+use Rabbit\Templates\TemplatesServiceProvider;
+use Rabbit\Utils\Singleton;
+use Exception;
+use League\Container\Container;
+ 
+if (file_exists(dirname(__FILE__) . '/vendor/autoload.php')) {
+    require dirname(__FILE__) . '/vendor/autoload.php';
 }
 
-// Include the main plugin class.
-require_once plugin_dir_path(__FILE__) . 'includes/public.php';
-
-// Register activation hook.
-register_activation_hook(__FILE__, 'bookmanager_activate');
-
-// Instantiate the plugin.
-$bookmanager = new BookManager();
-
-// Run the plugin.
-add_action('plugins_loaded', 'bookmanager_run');
-function bookmanager_run()
-{
-    // Add your plugin logic here.
-}
 
 function bookmanager_activate()
 {
