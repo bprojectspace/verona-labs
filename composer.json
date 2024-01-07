@@ -1,0 +1,5 @@
+{
+    "require": {
+        "veronalabs/rabbit": "^0.1.0"
+    }
+}
